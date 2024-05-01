@@ -12,7 +12,7 @@ if res.status_code == 200:
 else:
     print("HTTP 請求失敗！")
     exit()
-
+#使用Beautiful Soup函式庫中的BeautifulSoup類來剖析HTTP響應的文本內容
 soup = BeautifulSoup(res.text, 'lxml')
 
 # 創建一個空列表來存儲新聞資訊的字典
