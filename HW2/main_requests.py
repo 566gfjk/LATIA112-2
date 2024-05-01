@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 print("正在發送 HTTP GET 請求...")
 res = requests.get('https://news.ltn.com.tw/list/breakingnews')
 
-# 檢查響應是否成功
+# 檢查請求是否成功
 if res.status_code == 200:
     print("HTTP 請求成功！")
 else:
