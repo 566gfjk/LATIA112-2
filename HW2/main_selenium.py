@@ -2,9 +2,11 @@ import time
 import pandas as pd
 from selenium import webdriver
 from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.service import Service
 
-# 啟動 Chrome 瀏覽器
-driver = webdriver.Chrome()
+# 設置 Chrome 驅動程式的路徑和啟動 WebDriver
+service = Service('chromedriver')
+driver = webdriver.Chrome(service=service)
 
 # 發送 HTTP GET 請求並獲取網頁原始碼
 print("正在發送 HTTP GET 請求...")
@@ -54,7 +56,5 @@ for li in soup.select('ul.list li'):
 df = pd.DataFrame(news_list)
 
 # 將 DataFrame 寫入 CSV 檔案
-filename = 'ltn_news_with_images.csv'
+filename = 'selenium_ltn_news_with_images.csv'
 df.to_csv(filename, index=False, encoding='utf-8-sig')
-
-print(f'新聞資訊已儲存至 {filename} 檔案中。')
